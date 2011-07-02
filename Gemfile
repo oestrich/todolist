@@ -11,6 +11,8 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
+gem 'haml-rails'
+
 group :development, :test do
   gem 'cucumber-rails'
   gem 'rspec-rails'
