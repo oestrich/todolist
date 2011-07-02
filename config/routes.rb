@@ -3,7 +3,8 @@ Todo::Application.routes.draw do
     resources :my_todos, :only => :index
   end
 
-  match "*path" => "home#index"
+  match "/my_todos" => "home#index"
+  match "/my_todos/:id" => "home#index"
 
   root :to => "home#index"
 end
