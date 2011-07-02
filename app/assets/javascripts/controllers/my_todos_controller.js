@@ -1,7 +1,7 @@
 $(function() {
   Application.Controllers.MyTodos = Backbone.Router.extend({
     routes: {
-      "": "index",
+      "":             "index",
       "my_todos/:id": "show"
     },
 
@@ -21,8 +21,10 @@ $(function() {
     },
 
     loadJson: function() {
-      Application.Todos = new Application.Collections.Todos();
-      Application.Todos.reset(Application.Data.Todos);
+      if (Application.Todos == null) {
+        Application.Todos = new Application.Collections.Todos();
+        Application.Todos.reset(Application.Data.Todos);
+      }
     }
   });
 });
