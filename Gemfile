@@ -13,6 +13,8 @@ gem 'jquery-rails'
 
 gem 'haml-rails'
 
+gem 'decent_exposure'
+
 group :development, :test do
   gem 'cucumber-rails'
   gem 'rspec-rails'
