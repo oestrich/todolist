@@ -6,6 +6,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require underscore
 //= require backbone
+//= require startup
+//= require_tree ./models
+//= require_tree ./controllers
+//= require_tree ./views
+//
+
+$(function(){
+  Application.MyTodos = new Application.Controllers.MyTodos();
+  Backbone.history.start({pushState: true});
+});
+
