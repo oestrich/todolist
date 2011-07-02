@@ -1,23 +1,28 @@
-Application.Controllers.MyTodos = Backbone.Router.extend({
-  routes: {
-    "": "index",
-    "my_todos/:id": "show"
-  },
+$(function() {
+  Application.Controllers.MyTodos = Backbone.Router.extend({
+    routes: {
+      "": "index",
+      "my_todos/:id": "show"
+    },
 
-  index: function() {
-    this.loadJson();
-    this.navigate(Application.Todos.first().url());
-  },
+    index: function() {
+      this.loadJson();
+      Application.Todos.each(function(todo) {
+        var view = new Application.Views.Todo({model: todo});
+        $(".todos").append(view.render().el);
+      });
+    },
 
-  show: function(id) {
-    this.loadJson();
-    var todo = Application.Todos.get(id);
-    console.log(todo.get("message"));
-    console.log(todo.get("due"));
-  },
+    show: function(id) {
+      this.loadJson();
+      var todo = Application.Todos.get(id);
+      var view = new Application.Views.Todo({model: todo});
+      $(".todos").append(view.render().el);
+    },
 
-  loadJson: function() {
-    Application.Todos = new Application.Collections.Todos();
-    Application.Todos.reset(Application.Data.Todos);
-  }
+    loadJson: function() {
+      Application.Todos = new Application.Collections.Todos();
+      Application.Todos.reset(Application.Data.Todos);
+    }
+  });
 });
