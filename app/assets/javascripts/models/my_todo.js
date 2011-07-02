@@ -5,6 +5,3 @@ Application.Collections.Todos = Backbone.Collection.extend({
   model: Application.Todo,
   url: "/my_todos"
 });
-
-Application.Todos = new Application.Collections.Todos();
-Application.Todos.reset(<%= MyTodo.all.to_json %>);
