@@ -7,10 +7,8 @@ $(function() {
 
     index: function() {
       this.loadJson();
-      Application.Todos.each(function(todo) {
-        var view = new Application.Views.Todo({model: todo});
-        $(".todos").append(view.render().el);
-      });
+      var view = new Application.Views.Todos({model: Application.Todos});
+      $(".todos").append(view.render().el);
     },
 
     show: function(id) {

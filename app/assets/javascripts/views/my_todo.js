@@ -10,4 +10,15 @@ $(function() {
       return this;
     }
   });
+
+  Application.Views.Todos = Backbone.View.extend({
+    render: function() {
+      this.model.each(function(todo) {
+        var view = new Application.Views.Todo({model: todo});
+        $(".todos").append(view.render().el);
+      });
+
+      return this;
+    }
+  });
 });
