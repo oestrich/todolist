@@ -4,6 +4,6 @@ $(function() {
 
   Application.Collections.Todos = Backbone.Collection.extend({
     model: Application.Todo,
-    url: "/my_todos"
+    url: "/json/my_todos"
   });
 });

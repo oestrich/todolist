@@ -1,6 +1,6 @@
 Todo::Application.routes.draw do
   namespace :json do
-    resources :my_todos, :only => :index
+    resources :my_todos, :only => [:index, :create]
   end
 
   match "/my_todos" => "home#index"
